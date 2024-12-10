@@ -1,0 +1,12 @@
+{
+  "name": "java-study-note",
+  "version": "1.0.0",
+  "description": "java-study-note",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "main": "bash main.sh"
+  },
+  "author": "",
+  "license": "ISC"
+}
