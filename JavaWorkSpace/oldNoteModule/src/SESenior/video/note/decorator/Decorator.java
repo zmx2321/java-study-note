@@ -1,21 +1,21 @@
 package SESenior.video.note.decorator;
 
 /**
- * װ����--FilterInputStream
+ * 装饰类--FilterInputStream
  * @author hjkjkj
  *
  */
 public class Decorator implements Component {
-	//����Component�����ʵ��������Component���͵����ñ���
+	//持有Component对象的实例，持有Component类型的引用变量
 	private Component component = null;
-	
+
 	public Decorator(Component component){
 		this.component = component;
 	}
-	
+
 	@Override
 	public void doThingA() {
-		//���ñ�װ�ζ���ķ���
+		//调用被装饰对象的方法
 		component.doThingA();
 	}
 }

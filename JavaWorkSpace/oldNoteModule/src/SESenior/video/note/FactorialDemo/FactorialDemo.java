@@ -1,5 +1,5 @@
 /*
- *  �ݹ���׳�
+ *  递归求阶乘
  */
 
 package SESenior.video.note.FactorialDemo;
@@ -10,9 +10,9 @@ public class FactorialDemo {
 	}
 }
 
-//������
+//工具类
 class FacUtil{
-	//�ṩһ�������ľ�̬�������ⲿ����
+	//提供一个公开的静态方法供外部调用
 	public static int getFac(int number){
 		if(number==1){
 			return 1;

@@ -1,6 +1,6 @@
 /*
- * ��һ��ָ��Ŀ¼�µ�java�ļ��ľ���·�����洢��һ���ı���
- * ����һ��java���ļ��б�
+ * 将一个指定目录下的java文件的绝对路径，存储到一个文本中
+ * 建立一个java的文件列表
  */
 
 package SESenior.eg.fn.IO;
@@ -18,15 +18,15 @@ public class FileDemo {
 		List<File> list = new ArrayList<File>();
 		fileToList(dir, list);
 		// System.out.println(list.size());
-		File file = new File(dir, "javaList.txt");// dir��Ŀ¼
+		File file = new File(dir, "javaList.txt");// dir父目录
 		writeToFile(list, file.toString());
 	}
 
-	// �ļ������ȷ��뼯��
+	// 文件对象先放入集合
 	public static void fileToList(File dir, List<File> list) {
 		if (dir != null) {
 			if (dir.isDirectory()) {
-				File[] files = dir.listFiles();  //�ļ���������
+				File[] files = dir.listFiles();  //文件对象数组
 				for (File file : files) {
 					fileToList(file, list);
 				}
@@ -38,7 +38,7 @@ public class FileDemo {
 		}
 	}
 
-	// д���ı���
+	// 写入文本中
 	public static void writeToFile(List<File> list, String javaListFile) {
 		BufferedWriter bufw = null;
 		try {

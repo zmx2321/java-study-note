@@ -1,17 +1,17 @@
 /**
- * �����̵߳�ѭ�����
- * ���߳�ѭ��3�Σ��������߳�ѭ��6�Σ������ֻص����߳�ѭ��3�Σ������ٻص����߳���ѭ��6�Σ����ѭ��10�Σ���д������
+ * 主子线程的循环输出
+ * 子线程循环3次，接着主线程循环6次，接着又回到子线程循环3次，接着再回到主线程又循环6次，如此循环10次，请写出程序
  */
 
 package SESenior.eg.fn.SyncDemo;
 
 public class SyncDemo6 {
-	static boolean flag = false; // ��¼���߳��Ƿ��Ѿ����
+	static boolean flag = false; // 记录子线程是否已经输出
 	static Object lock = new Object();
 
 	public static void main(String[] args) {
 		// TODO Auto-generated methodstub
-		// ���߳�
+		// 子线程
 		new Thread() {
 			@Override
 			public void run() {
@@ -21,9 +21,9 @@ public class SyncDemo6 {
 							if (flag) {
 								lock.wait();
 							}
-							System.out.println("~~~~~~~~~~~~~~��" + i + "�غ�~~~~~~~~");
+							System.out.println("~~~~~~~~~~~~~~第" + i + "回合~~~~~~~~");
 							for (int j = 1; j <= 3; j++) {
-								System.out.println("���߳�" + j);
+								System.out.println("子线程" + j);
 								Thread.sleep(200);
 							}
 							flag = true;
@@ -36,7 +36,7 @@ public class SyncDemo6 {
 				}
 			};
 		}.start();
-		// ���߳�
+		// 主线程
 		for (int i = 1; i <= 10; i++) {
 			try {
 				synchronized (lock) {
@@ -44,7 +44,7 @@ public class SyncDemo6 {
 						lock.wait();
 					}
 					for (int j = 1; j <= 6; j++) {
-						System.out.println("���߳�....." + j);
+						System.out.println("主线程....." + j);
 						Thread.sleep(200);
 					}
 					flag = false;

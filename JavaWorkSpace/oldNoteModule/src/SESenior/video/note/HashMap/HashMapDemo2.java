@@ -7,19 +7,19 @@ import java.util.Map.Entry;
 
 public class HashMapDemo2 {
 	public static void main(String[] args) {
-		//�ӿڵ����ñ�����������ʵ�������
+		//接口的引用变量可以引用实现类对象
 		Map<Student, String> map = new HashMap<>();
-		map.put(new Student("jay", 20), "����");
-		map.put(new Student("lisi", 30), "����");
+		map.put(new Student("jay", 20), "张三");
+		map.put(new Student("lisi", 30), "李四");
 		map.put(new Student("lisi", 30), "333");
-		
-		//�鿴Ԫ������
+
+		//查看元素数量
 		System.out.println(map.size());
-		
-		//��ӡ
+
+		//打印
 		System.out.println(map);
-		
-		//��Entry����
+
+		//用Entry遍历
 		Set<Entry<Student, String>> entrys = map.entrySet();
 		for(Entry<Student, String> entry:entrys){
 			System.out.println(entry.getKey() + "--" + entry.getValue());
@@ -30,7 +30,7 @@ public class HashMapDemo2 {
 class Student{
 	private String name;
 	private int age;
-	
+
 	public Student() {}
 
 	public Student(String name, int age) {
@@ -57,8 +57,8 @@ class Student{
 		return "Student [name=" + name + ", age=" + age + "]";
 	}
 
-	//�������ͬ����ֵ����
-	//��дhashcode������equals����
+	//如果键相同，则值覆盖
+	//重写hashcode方法和equals方法
 	@Override
 	public int hashCode() {
 		final int prime = 31;

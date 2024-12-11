@@ -1,7 +1,7 @@
-/* 
- * ��ȡһ��Ŀ¼�µ������ļ��к��ļ����������ļ��к����ļ� �� 
- * �����ļ��к��ļ����ƴ�ӡ�ڿ���̨���档����Ҫ��ʾ�ļ�Ŀ¼�Ĳ㼶 
- * ע�������˵ݹ���㷨�� 
+/*
+ * 获取一个目录下的所有文件夹和文件，包括子文件夹和子文件 。
+ * 并将文件夹和文件名称打印在控制台上面。并且要显示文件目录的层级
+ * 注：运用了递归的算法。
  */
 
 package SESenior.eg.fn.FileDemo;
@@ -12,12 +12,12 @@ public class FileDemo1 {
 	public static void main(String[] args) {
 		File dir = new File("D:\\_site_\\aa\\");
 		// File dir=new File("F:\\");
-		// ���ʹ���������̷��ĸ�Ŀ¼�������java.lang.NullPointerException
-		// Ϊʲô��
-		getAllFiles(dir, 0);// 0��ʾ���
+		// 如果使用上述的盘符的根目录，会出现java.lang.NullPointerException
+		// 为什么？
+		getAllFiles(dir, 0);// 0表示最顶层
 	}
 
-	// ��ȡ�㼶�ķ���
+	// 获取层级的方法
 	public static String getLevel(int level) {
 		// A mutable sequence of characters.
 		StringBuilder sb = new StringBuilder();
@@ -33,7 +33,7 @@ public class FileDemo1 {
 		File[] files = dir.listFiles();
 		for (int i = 0; i < files.length; i++) {
 			if (files[i].isDirectory()) {
-				// ���������˵ݹ���㷨
+				// 这里面用了递归的算法
 				getAllFiles(files[i], level);
 			} else {
 				System.out.println(getLevel(level) + files[i]);

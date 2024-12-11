@@ -8,8 +8,8 @@ import java.net.SocketException;
 
 public class ClientInputStream implements Runnable {
 	private Socket socket = null;
-	
-	
+
+
 	public ClientInputStream(Socket socket) {
 		super();
 		this.socket = socket;
@@ -18,13 +18,13 @@ public class ClientInputStream implements Runnable {
 	@Override
 	public void run() {
 		try {
-			//��ȡ����˴������Ĵ�д�ַ���
-			//socket.getInputStream()��ö�Ӧ��������
+			//获取服务端传过来的大写字符串
+			//socket.getInputStream()获得对应的输入流
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			
+
 			while(true){
 				try {
-					//��ȡ
+					//读取
 					String line = br.readLine();
 					System.out.println(line);
 				} catch (SocketException e) {

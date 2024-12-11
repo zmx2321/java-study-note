@@ -16,13 +16,13 @@ public class ArrayListDemo2 {
 		stuList.add(stu3);
 		stuList.add(stu4);
 		stuList.add(stu5);
-		
+
 		Student stu6 = new Student("ddd", 20);
-		//û�ҵ�
+		//没找到
 		System.out.println(stuList.indexOf(stu6));
-		//�����ֺ�����һ������Ĭ���������д���
-		//��дequals����....
-		//ɾ��
+		//当名字和年龄一样，就默认在容器中存在
+		//重写equals方法....
+		//删除
 		System.out.println(stuList.indexOf(stu5));
 		System.out.println(stuList.contains(stu6));
 		System.out.println(stuList.remove(stu6));
@@ -35,27 +35,27 @@ public class ArrayListDemo2 {
 class Student{
 	private String name;
 	private int age;
-	
+
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public int getAge() {
 		return age;
 	}
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
+
 	public Student(String name, int age) {
 		super();
 		this.name = name;
 		this.age = age;
 	}
-	
+
 	//ctrl+alt+s --> hashCode and equals
 	@Override
 	public int hashCode() {
@@ -65,23 +65,23 @@ class Student{
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)  //�Լ����Լ��ȣ�����ָ��ָ��ͬһ������
+		if (this == obj)  //自己和自己比，两个指针指向同一个对象
 			return true;
-		if (obj == null)  //Ϊ��
+		if (obj == null)  //为空
 			return false;
-		if (getClass() != obj.getClass())  //���Ͳ�һ��������˵���˺͹�
+		if (getClass() != obj.getClass())  //类型不一样，比如说，人和狗
 			return false;
-		Student other = (Student) obj;  //ת����ѧ������
-		if (age != other.age)  //���䲻���
+		Student other = (Student) obj;  //转换成学生对象
+		if (age != other.age)  //年龄不相等
 			return false;
-		if (name == null) {  //����Ϊ��
+		if (name == null) {  //名字为空
 			if (other.name != null)
 				return false;
-		} else if (!name.equals(other.name))  //���ֲ����
+		} else if (!name.equals(other.name))  //名字不相等
 			return false;
-		return true;  //�����������һ���ŷ���true
+		return true;  //当年龄和姓名一样才返回true
 	}
 }

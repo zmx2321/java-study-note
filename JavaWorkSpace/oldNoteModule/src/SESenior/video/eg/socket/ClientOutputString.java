@@ -7,10 +7,10 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class ClientOutputString implements Runnable {
-	//ͨ��socket�����ö�Ӧ�����������
-	private Socket socket = null;  //����һ��socket�����ñ���
-	
-	//���췽��
+	//通过socket对象获得对应的输入输出流
+	private Socket socket = null;  //声明一个socket的引用变量
+
+	//构造方法
 	public ClientOutputString(Socket socket) {
 		super();
 		this.socket = socket;
@@ -19,23 +19,23 @@ public class ClientOutputString implements Runnable {
 	@Override
 	public void run() {
 		try {
-			//���̱�׼������
+			//键盘标准输入流
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			
-			//ͨ��socket����д��
+
+			//通过socket对象写入
 			PrintWriter pw = new PrintWriter(socket.getOutputStream(), true);
-				
-			//��ü������������
+
+			//获得键盘输入的内容
 			while(true){
-				//��ü����������һ���ַ���
+				//获得键盘所输入的一行字符串
 				String line = br.readLine();
 				pw.println(line);
 				if(line.equals(" bye")){
 					break;
 				}
 			}
-			
-			//�ͷ���Դ
+
+			//释放资源
 			br.close();
 			pw.close();
 			socket.close();

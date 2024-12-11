@@ -7,11 +7,11 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class ServerStream implements Runnable {
-	//ͨ��IO�Կͻ��˶�д����
+	//通过IO对客户端读写操作
 	private Socket socket = null;
 	private int number;
-	
-	//���ɴ�2�������Ĺ��췽��
+
+	//生成带2个参数的构造方法
 	public ServerStream(Socket socket, int number) {
 		super();
 		this.socket = socket;
@@ -20,19 +20,19 @@ public class ServerStream implements Runnable {
 
 	@Override
 	public void run() {
-		//��ȡ�ͻ��˴��������ַ���(ͨ��IO�е�������)
-		//�ַ���(�ֽ���ת�ַ���)
+		//获取客户端传过来的字符串(通过IO中的输入流)
+		//字符流(字节流转字符流)
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			//д(�õ���Ӧ���ֽ�����������Զ�ˢ�»�����)
+			//写(得到对应的字节输出流，并自动刷新缓冲区)
 			PrintWriter pw = new PrintWriter(socket.getOutputStream(), true);
-			//ֻҪ�ͻ��˷���������һֱ��
+			//只要客户端发过来就能一直读
 			while(true){
-				String line = br.readLine();  //�����ͻ��˴��������ַ���
-				System.out.println("�ͻ���" + number + ":" + line);
+				String line = br.readLine();  //读到客户端传过来的字符串
+				System.out.println("客户端" + number + ":" + line);
 				pw.println(line.toUpperCase());
 				if(line.equals("bye")){
-					System.out.println("�ͻ���" + number + "�Ѿ��Ͽ�����");
+					System.out.println("客户端" + number + "已经断开连接");
 					break;
 				}
 			}

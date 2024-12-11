@@ -62,7 +62,7 @@ public class Club {
 		}
 	}
 
-	// ����������ɫת���ķ�����û�в��䡣����Ȥ�����Լ����䡣
+	// 其他几个颜色转动的方法还没有补充。有兴趣可以自己补充。
 	public void yF(int n) {
 
 	}
@@ -110,7 +110,7 @@ public class Club {
 					System.out.println(cube[i][j][k] + "->" + cube[i][0][0]);
 					try {
 						if (cube[i][j][k] != cube[i][0][0]) {
-							System.out.println("cube[i][j][k]:" + i + "," + j + "," + k + "���һ����ɫ��һ��");
+							System.out.println("cube[i][j][k]:" + i + "," + j + "," + k + "与第一个颜色不一致");
 							return false;
 						}
 					} catch (ArrayIndexOutOfBoundsException e) {
@@ -125,7 +125,7 @@ public class Club {
 	}
 
 	public void log(long i, int j, int k) {
-		System.out.println("��" + i + "�Σ�������" + j + "��ִ��" + k + "��");
+		System.out.println("第" + i + "次，动作是" + j + "，执行" + k + "次");
 	}
 
 	public void showCube() {
@@ -197,7 +197,7 @@ public class Club {
 			}
 		}
 		showCube();
-		System.out.println("cube����" + operationTimes + "�β�����ԭ");
+		System.out.println("cube经过" + operationTimes + "次操作后复原");
 	}
 
 	public void rangePlay(int i) {
@@ -254,7 +254,7 @@ public class Club {
 				log(operationTimes, rMethod, rTurn);
 			}
 		}
-		System.out.println("cube�Ѿ�������" + i + "��");
+		System.out.println("cube已经被操作" + i + "次");
 	}
 
 	public static void main(String[] args) {

@@ -1,22 +1,22 @@
 package SESenior.video.eg.myIterator;
 
 public class ArrayList<T> implements List<T> {
-	private Object[] obj = null;  //����һ��Object���͵�����
-	//���Ͳ���������������
-	private int index;  //������±�
-	private int size;  //��¼�����е�Ԫ�ظ���
-	
+	private Object[] obj = null;  //声明一个Object类型的数组
+	//泛型不能声明泛型数组
+	private int index;  //数组的下标
+	private int size;  //记录数组中的元素个数
+
 	public ArrayList(){
 		obj = new Object[10];
 		index = 0;
 		size = 0;
 	}
-	
+
 	@Override
 	public void add(T obj) {
-		//�����ݴ����������
+		//把数据存放在数组中
 		this.obj[index++] = obj;
-		//Ԫ�ظ�����һ
+		//元素个数加一
 		size++;
 	}
 

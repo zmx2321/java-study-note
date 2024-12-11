@@ -10,19 +10,19 @@ import java.io.Serializable;
 public class ObjectInputOutputDemo {
 	public static void main(String[] args) throws IOException {
 		Student stu1 = new Student("aaqqwaa", 20);
-		
-		//���л�
+
+		//序列化
 		FileOutputStream fos = new FileOutputStream("D:\\_site_\\aaa\\a.txt");
-		
-		//��װ
+
+		//包装
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		
-		//д��(�Ѷ������л���ָ�����ļ��������)
+
+		//写入(把对象序列化到指定的文件输出流中)
 		oos.writeObject(stu1);
-		
+
 		oos.close();
-		
-		//�����л�
+
+		//反序列化
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D:\\_site_\\aaa\\a.txt"));
 		try {
 			Student stu = (Student)ois.readObject();
@@ -31,7 +31,7 @@ public class ObjectInputOutputDemo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		ois.close();
 	}
 }
@@ -41,13 +41,13 @@ class Student implements Serializable{
 	private static final long serialVersionUID = 1717174595646044849L;
 	private String name;
 	private int age;
-	
+
 	public Student(String name, int age) {
 		super();
 		this.name = name;
 		this.age = age;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -60,7 +60,7 @@ class Student implements Serializable{
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Student [name=" + name + ", age=" + age + "]";

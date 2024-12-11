@@ -21,7 +21,7 @@ class Father {
 	}
 
 	public void fun4() {
-		// ����3��ʹ�÷���ķ�ʽ�������෽��
+		// 方法3：使用反射的方式调用子类方法
 		try {
 			Class<?> cls = Class.forName("eg.fn.exd.Son");
 			Son son = (Son) cls.newInstance();
@@ -33,11 +33,11 @@ class Father {
 	}
 
 	public void fun1() {
-		// ����1�������ഫ�ݵ�������вι��캯���У�Ȼ����á�
-		System.out.println("���Ǹ���ķ���");
+		// 方法1：把子类传递到父类的有参构造函数中，然后调用。
+		System.out.println("我是父类的方法");
 		son.fun2();
 
-		// ����2�������������ľ�̬������
+		// 方法2：父类调用子类的静态方法。
 		Son.fun3();
 	}
 }
@@ -45,11 +45,11 @@ class Father {
 class Son extends Father {
 
 	public static void fun3() {
-		System.out.println("��������ľ�̬����");
+		System.out.println("我是子类的静态方法");
 	}
 
 	public void fun2() {
-		System.out.println("��������ķ���");
+		System.out.println("我是子类的方法");
 
 	}
 

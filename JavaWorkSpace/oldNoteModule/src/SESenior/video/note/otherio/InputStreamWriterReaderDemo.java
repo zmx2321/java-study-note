@@ -10,27 +10,27 @@ import java.io.OutputStreamWriter;
 
 public class InputStreamWriterReaderDemo {
 	public static void main(String[] args) throws IOException{
-		//д��
+		//写入
 		OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("D:\\_site_\\aaa\\io1.txt"), "utf-8");
-		
-		//��װ���ӻ�����
+
+		//包装，加缓冲区
 		BufferedWriter bw = new BufferedWriter(osw);
-		
-		bw.write("���");
-		
+
+		bw.write("你好");
+
 		bw.close();
-		
-		//��(gb2312.���벻��)
+
+		//读(gb2312.编码不对)
 		//BufferedReader br = new BufferedReader(new FileReader("D:\\_site_\\aaa\\io1.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("D:\\_site_\\aaa\\io1.txt"), "utf-8"));
-		
+
 		String line = null;
-		
-		//һ���ж�����ȡһ�У���ֵ���ַ�������
+
+		//一行行读，读取一行，赋值给字符串变量
 		while((line=br.readLine())!=null){
 			System.out.println(line);
 		}
-		
+
 		br.close();
 	}
 }

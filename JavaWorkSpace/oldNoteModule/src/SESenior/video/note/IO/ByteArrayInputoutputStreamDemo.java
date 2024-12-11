@@ -8,45 +8,45 @@ import java.io.IOException;
 public class ByteArrayInputoutputStreamDemo {
 	public static void main(String[] args) throws IOException {
 		String str = "hello,shanghai";
-		
-		//�ֽ������������ֽ��ж�ȡ����
-		//����Դ���ֽ�����
-		//�ַ���ת�ֽ�����
+
+		//字节输入流，从字节中读取数据
+		//数据源是字节数组
+		//字符串转字节数组
 		ByteArrayInputStream bis = new ByteArrayInputStream(str.getBytes());
-		
+
 		int data = -1;
-		
+
 		while((data=bis.read())!=-1){
 			System.out.print((char)data);
 		}
-		
-		//����
+
+		//无用
 		bis.close();
-		
-		
-		//�ֽ����������
-		//Ĭ��32�����ȵ��ֽڻ�����
+
+
+		//字节数组输出流
+		//默认32个长度的字节缓冲区
 		ByteArrayOutputStream bos = new ByteArrayOutputStream(100);
-		//���ڲ�������д����
+		//给内部缓冲区写数据
 		bos.write(97);
-		//�ַ���ת�ֽ�����
+		//字符串转字节数组
 		bos.write("helloh hh".getBytes());
-		
-		//����һ���ֽ�����
+
+		//返回一个字节数组
 		byte[] buff = bos.toByteArray();
-		
+
 		for(byte data1:buff){
 			System.out.print((char)data1);
 		}
-		
+
 		FileOutputStream fos = new FileOutputStream("D:\\_site_\\aaa\\JavaList1.txt", true);
-		//��ByteArrayOutputStream�ڲ�������������д����ѽ���ļ��������
+		//把ByteArrayOutputStream内部缓冲区的数据写到对呀的文件输出流中
 		bos.writeTo(fos);
-		
-		//����
+
+		//无用
 		bos.close();
-		
-		//����ϵͳ����Դ
+
+		//调用系统的资源
 		fos.close();
 	}
 }

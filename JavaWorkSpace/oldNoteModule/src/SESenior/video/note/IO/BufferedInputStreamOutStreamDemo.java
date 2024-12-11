@@ -20,33 +20,33 @@ public class BufferedInputStreamOutStreamDemo {
 
 class FileUtil{
 	public static void copy(File src, File dst) throws IOException{
-		//�����ļ�����������ȡ�ļ��е����ݣ�
+		//创建文件输入流（读取文件中的内容）
 		FileInputStream fis = new FileInputStream(src);
-		//�����ļ��������д���ļ��е����ݣ�
+		//创建文件输出流（写出文件中的内容）
 		FileOutputStream fos = new FileOutputStream(dst);
-		
-		//��װ��
-		//���췽�������ֽ������������ӻ������Ĺ���
+
+		//包装类
+		//构造方法接收字节输入流，增加缓冲区的功能
 		BufferedInputStream bis = new BufferedInputStream(fis);
-		//���췽�������ֽ�����������ӻ������Ĺ���(�ֽ�����)
+		//构造方法接收字节输出流，增加缓冲区的功能(字节数组)
 		BufferedOutputStream bos = new BufferedOutputStream(fos);
-		
+
 		int data = 0;
-		
-		//��ú�����
+
+		//获得毫秒数
 		Long t1 = System.currentTimeMillis();
-		
-		//readֱ�Ӵӻ�������
+
+		//read直接从缓冲区读
 		while((data=bis.read())!=-1){
 			bos.write(data);
 		}
-		
+
 		bis.close();
 		bos.close();
-		
-		//��ú�����
+
+		//获得毫秒数
 		Long t2 = System.currentTimeMillis();
-				
-		System.out.println("������ɣ�������" + (t2-t1) + "����");
+
+		System.out.println("复制完成，共花费" + (t2-t1) + "毫秒");
 	}
 }

@@ -1,6 +1,6 @@
 /*
- * �ó���ģ����·��Ʊϵͳ��ʵ��ͨ��������Ʊ�㷢��ĳ��ĳ���г���50�ų�Ʊ��
- * һ����Ʊ����һ���̱߳�ʾ
+ * 用程序模拟铁路售票系统：实现通过两个售票点发售某日某次列车的50张车票，
+ * 一个售票点用一个线程表示
  */
 
 package SESenior.eg.fn.SyncDemo;
@@ -8,37 +8,37 @@ package SESenior.eg.fn.SyncDemo;
 public class SyncDemo1 {
 	public static void main(String[] args) {
 		/*
-		 * new SaleTicketThread("����1").start(); new
-		 * SaleTicketThread("����2").start();
+		 * new SaleTicketThread("窗口1").start(); new
+		 * SaleTicketThread("窗口2").start();
 		 */
 
-		// ����Ʊ�����ڲ���װ����Ʊ�ķ��������Ҿ߱��������߳��е�������
+		// 创建票对象（内部封装了卖票的方法，并且具备运行在线程中的能力）
 		Ticket tickt = new Ticket();
-		// �ö������ͬʱ��Ʊ�����߳�ִ��ָ�����������
-		new Thread(tickt, "����1").start();
-		new Thread(tickt, "����2").start();
+		// 让多个窗口同时卖票（让线程执行指定的任务对象）
+		new Thread(tickt, "窗口1").start();
+		new Thread(tickt, "窗口2").start();
 	}
 }
 
 class Ticket implements Runnable {
-	int num = 50;// Ʊ��
+	int num = 50;// 票数
 	Object obj = new Object();
 
 	@Override
 	public void run() {
-		// ��ͣ����Ʊ
+		// 不停地卖票
 		while (true) {
 			sale();
 		}
 	}
 
 	/**
-	 * ��Ʊ��ÿ����һ�Σ���һ��Ʊ
+	 * 卖票，每调用一次，卖一张票
 	 */
-	// ͬ����������ʵ����ͬ�������ļ�д��ʽ
+	// 同步方法，其实就是同步代码块的简写方式
 	public synchronized void sale() {
-		// ͬ������飬ͬһʱ��ֻ����һ���߳̽���ִ������Ĵ���
-		//synchronized (this) {// ͬ����,ÿ�����󶼿�����Ϊͬ��������ʹ��(�����κζ���)
+		// 同步代码块，同一时间只能有一个线程进行执行里面的代码
+		//synchronized (this) {// 同步锁,每个对象都可以作为同步锁进行使用(可用任何对象)
 		if (num > 0) {
 			try {
 				Thread.sleep(100);

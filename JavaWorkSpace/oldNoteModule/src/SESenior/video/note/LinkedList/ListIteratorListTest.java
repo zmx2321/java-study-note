@@ -9,7 +9,7 @@ public class ListIteratorListTest {
 		ListIteratorListTest d = new ListIteratorListTest();
 		d.ListTest();
 	}
-	
+
 	public void ListTest() {
 		boolean doExceptionTest = false;
 		List<Phone> phones = new ArrayList<Phone>();
@@ -18,7 +18,7 @@ public class ListIteratorListTest {
 		phones.add(new Phone("182"));
 		phones.add(new Phone("185"));
 
-		System.out.println("ԭʼ����");
+		System.out.println("原始数据");
 		for (Phone phoneElem : phones) {
 			System.out.println(phoneElem.getNumber());
 		}
@@ -30,7 +30,7 @@ public class ListIteratorListTest {
 				tmpPhone.setNumber("666");
 				phoneIterator.set(tmpPhone);
 				phoneIterator.add(new Phone("132")); // use ListIterator add
-														// item is ok
+				// item is ok
 			}
 			if (tmpPhone.getNumber().equals("183")) {
 				phoneIterator.remove();
@@ -42,13 +42,13 @@ public class ListIteratorListTest {
 			}
 		}
 
-		System.out.println("\n�޸ĺ����������");
+		System.out.println("\n修改后正向遍历：");
 		for (Phone phoneElem : phones) {
 			System.out.println(phoneElem.getNumber());
 		}
 
-		System.out.println("\n�޸ĺ��������");
-		// �������
+		System.out.println("\n修改后反向遍历：");
+		// 反向遍历
 		while (phoneIterator.hasPrevious()) {
 			System.out.println(phoneIterator.previousIndex() + ": " + phoneIterator.previous().getNumber());
 		}

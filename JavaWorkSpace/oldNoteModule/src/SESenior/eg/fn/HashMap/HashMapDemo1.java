@@ -1,6 +1,6 @@
 /*
- *  ��asdascveasrgdfsdf����ȡ���ַ����У�ÿһ����ĸ���ֵĴ�����
- *  Ҫ�󣺴�ӡ����ǣ�a(2)b(1)... 
+ *  “asdascveasrgdfsdf”获取该字符串中，每一个字母出现的次数。
+ *  要求：打印结果是：a(2)b(1)...
  */
 
 package SESenior.eg.fn.HashMap;
