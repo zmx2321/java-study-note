@@ -2,7 +2,7 @@
  *  TestJTabbedPane 标签面板
  */
 
-package eg.swimg.swing;
+package SEBase.eg.swimg.swing;
 
 import java.util.Vector;
 
@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 //import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
 //import javax.swing.table.DefaultTableModel;
 
 public class TestJTableDemo {
@@ -41,7 +43,7 @@ public class TestJTableDemo {
 
         data.add((vector) row1);
 
-        JTable jt = new JTable(data,title);
+        JTable jt = new JTable((TableModel) data, (TableColumnModel) title);
         JScrollPane jp = new JScrollPane(jt);
 
         jp.setBorder(BorderFactory.createTitledBorder("用户信息"));

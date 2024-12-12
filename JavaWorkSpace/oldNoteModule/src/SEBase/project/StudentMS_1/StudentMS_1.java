@@ -1,4 +1,4 @@
-package project.StudentMS_1;
+package SEBase.project.StudentMS_1;
 
 import javax.swing.*;
 

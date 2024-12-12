@@ -1,23 +1,28 @@
-ÖÜÄ©´ğÒÉ£º
-
-ÄÚ²¿Àà£º
-
-ÖØµã£ºÄäÃûÄÚ²¿Àà
-
-³£ÓÃµÄÀà£º
-StringBuffer  StringBuilder(ÓÅÏÈÑ¡ÓÃ)
-
-Date
-
-DateFormat  
-SimpleDateFormat (¿É×Ô¶¨Òå¸ñÊ½)
-
-parse()
-format()
-
-Calendar  
 
 
+interface Inter{
+	void show();
+}
+
+class Outer{
+	//è¡¥å…¨ä»£ç 
+
+}
+
+class OuterTest{
+	public static void main(String[] args){
+		Outer.method().show();
+	}
+}
+
+//åœ¨æ§åˆ¶å°è¾“å‡ºâ€œHelloWorldâ€
+
+
+
+è®¡ç®—ä¸¤ä¸ªæ—¥æœŸä¹‹é—´ç›¸éš”å¤šå°‘å¤©ï¼Ÿ
+2017.8.8  2017.12.17
+
+è·å–æ˜å¤©çš„è¿™ä¸ªæ—¶å€™ã€‚
 
 
 

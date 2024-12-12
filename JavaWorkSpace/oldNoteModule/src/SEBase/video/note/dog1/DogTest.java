@@ -1,6 +1,6 @@
 package SEBase.video.note.dog1;
 
-import video.note.dog.Dog;
+import SEBase.video.note.dog.Dog;
 
 public class DogTest {
 	public static void main(String[] args) {
