@@ -1,8 +1,6 @@
 package com.my.test13;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 
 /**
@@ -21,7 +19,13 @@ public class TestClient {
         DataOutputStream dos = new DataOutputStream(os);
 
         // 利用数据流往外传送数据
-        dos.writeUTF("hello");
+        dos.writeUTF("你好, 服务器, 我是客户端");
+
+        // 对服务器返回的数据做处理
+        InputStream is = s.getInputStream();
+        DataInputStream dis = new DataInputStream(is);
+        String str = dis.readUTF();
+        System.out.println("服务器对我说:" + str);
 
         // 流、网络资源关闭
         dos.close();

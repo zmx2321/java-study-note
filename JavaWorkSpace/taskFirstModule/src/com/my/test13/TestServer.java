@@ -1,8 +1,6 @@
 package com.my.test13;
 
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -22,7 +20,13 @@ public class TestServer {
 
         // 接收客户端发送的数据
         String str = dis.readUTF();
-        System.out.println(str);
+        System.out.println("客户端:" + str);
+
+        // 向客户端发送数据
+        OutputStream os =  s.getOutputStream();
+        DataOutputStream dos = new DataOutputStream(os);
+
+        dos.writeUTF("你好客户端,我接收到你的信息了");
 
         // 流、网络资源关闭
         // 从下往上关闭
