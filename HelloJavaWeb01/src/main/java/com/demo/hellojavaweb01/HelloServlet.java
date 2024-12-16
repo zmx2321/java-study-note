@@ -1,4 +1,4 @@
-package com.demo.hellojavaweb02;
+package com.demo.hellojavaweb01;
 
 import java.io.*;
 import jakarta.servlet.http.*;
@@ -9,7 +9,7 @@ public class HelloServlet extends HttpServlet {
     private String message;
 
     public void init() {
-        message = "Hello World111222211!";
+        message = "Hello World!";
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -17,7 +17,9 @@ public class HelloServlet extends HttpServlet {
 
         // Hello
         PrintWriter out = response.getWriter();
-        out.println(message);
+        out.println("<html><body>");
+        out.println("<h1>" + message + "</h1>");
+        out.println("</body></html>");
     }
 
     public void destroy() {
