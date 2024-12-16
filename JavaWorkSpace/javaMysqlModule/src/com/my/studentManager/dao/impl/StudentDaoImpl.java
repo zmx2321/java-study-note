@@ -12,7 +12,7 @@ import com.my.studentManager.db.DbHelp;
 import com.my.studentManager.entity.Student;
 
 /**
- * Dao 实现类
+ * DbHelp 实现类
  * 与数据库进行交互，只写数据库交互代码，不能写业务逻辑处理代码，业务逻辑处理放到service层
  * @author Administrator
  *
